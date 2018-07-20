@@ -18,7 +18,7 @@ namespace LINQKiindulo
         {
             Init();
 
-            var productNames = products.Where(p => p.UnitPrice > 10).Select(p => p.Name);
+            //var productNames = products.Where(p => p.UnitPrice > 10).Select(p => p.Name);
 
             //foreach (var product in productNames)
             //{
@@ -28,7 +28,7 @@ namespace LINQKiindulo
 
             //products.WriteAll();
 
-            //var numbers = new List<int> { 2, 3, 4, 5, 6 };
+            var numbers = new List<int> { 2, 3, 4, 5, 6 };
             //var evenNumbers = numbers.Where(n => n % 2 == 0).Where(n => n > 3);
             //var evenList = evenNumbers.ToList();
             //evenList.Add(12);
@@ -41,12 +41,29 @@ namespace LINQKiindulo
             //evenList.WriteAll("Páros lista 2");
             //evenNumbers.WriteAll("Páros számok 2");
 
-            var cheapProducts = from p in products
-                                where p.Discontinued
-                                select p;
+            //var cheapProducts = from p in products
+            //                    where p.Discontinued
+            //                    select p;
 
             //var cheapProducts = products.Where(p => p.Discontinued).Select(p => p); A Select rész természetesen elhagyható
 
+            var skipped = numbers.Skip(1);
+            //numbers.Insert(0, 10); //Beszúrok az elejére egy elemet de aztán a Skip rögtön ki is hagyja
+            //skipped.WriteAll("Skip");
+            var taken = numbers.Take(3);
+            //taken.WriteAll("Taken");
+
+            int pageSize = 20;
+            int currentPage = 1;
+            int totalPages = (int)Math.Ceiling(products.Count / (double)pageSize);
+            while (currentPage <= totalPages)
+            {
+                products.Skip((currentPage - 1) * pageSize).Take(pageSize).WriteAll();
+                Console.WriteLine("{0}/{1} oldal", currentPage, totalPages);
+                Console.ReadKey();
+                Console.Clear();
+                currentPage++;
+            }
 
             Console.ReadKey();
         }
