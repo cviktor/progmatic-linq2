@@ -24,7 +24,19 @@ namespace LINQKiindulo
             //{
             //    Console.WriteLine(product);
             //}
-            productNames.WriteAll("Termék nevek");
+            //productNames.WriteAll("Termék nevek");
+
+            //products.WriteAll();
+
+            var numbers = new List<int> { 2, 3, 4, 5, 6 };
+            var evenNumbers = numbers.Where(n => n % 2 == 0).Where(n => n > 3);
+            var evenList = evenNumbers.ToList();
+
+            evenList.WriteAll("Páros lista");
+            evenNumbers.WriteAll("Páros számok");
+            numbers.Add(10);
+            evenList.WriteAll("Páros lista 2");
+            evenNumbers.WriteAll("Páros számok 2");
 
             Console.ReadKey();
         }
