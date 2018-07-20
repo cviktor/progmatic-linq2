@@ -74,6 +74,11 @@ namespace LINQKiindulo
             //products.OrderBy(p => p.Name).OrderBy(p => p.UnitPrice).WriteAll(); ;
             //products.OrderBy(p => p.UnitPrice).ThenBy(p => p.Name).WriteAll(); //ugyan az az eredménye mint a felette lévõnek
 
+            var numberOfItems = products.Count(p => p.UnitPrice > 15);
+            Console.WriteLine(numberOfItems);
+
+            var maxPrice = products.Max(p => p.UnitPrice);
+            Console.WriteLine(maxPrice);
 
             Console.ReadKey();
         }
