@@ -53,17 +53,27 @@ namespace LINQKiindulo
             var taken = numbers.Take(3);
             //taken.WriteAll("Taken");
 
-            int pageSize = 20;
-            int currentPage = 1;
-            int totalPages = (int)Math.Ceiling(products.Count / (double)pageSize);
-            while (currentPage <= totalPages)
-            {
-                products.Skip((currentPage - 1) * pageSize).Take(pageSize).WriteAll();
-                Console.WriteLine("{0}/{1} oldal", currentPage, totalPages);
-                Console.ReadKey();
-                Console.Clear();
-                currentPage++;
-            }
+            //int pageSize = 20;
+            //int currentPage = 1;
+            //int totalPages = (int)Math.Ceiling(products.Count / (double)pageSize);
+            //while (currentPage <= totalPages)
+            //{
+            //    products.Skip((currentPage - 1) * pageSize).Take(pageSize).WriteAll();
+            //    Console.WriteLine("{0}/{1} oldal", currentPage, totalPages);
+            //    Console.ReadKey();
+            //    Console.Clear();
+            //    currentPage++;
+            //}
+
+            //var orderedByName = products.OrderBy(p => p.Name);
+            //orderedByName.WriteAll();
+
+            //var orderedByPrice = products.OrderByDescending(p => p.UnitPrice);
+            //orderedByPrice.WriteAll();
+
+            //products.OrderBy(p => p.Name).OrderBy(p => p.UnitPrice).WriteAll(); ;
+            //products.OrderBy(p => p.UnitPrice).ThenBy(p => p.Name).WriteAll(); //ugyan az az eredménye mint a felette lévõnek
+
 
             Console.ReadKey();
         }
