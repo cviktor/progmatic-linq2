@@ -74,11 +74,24 @@ namespace LINQKiindulo
             //products.OrderBy(p => p.Name).OrderBy(p => p.UnitPrice).WriteAll(); ;
             //products.OrderBy(p => p.UnitPrice).ThenBy(p => p.Name).WriteAll(); //ugyan az az eredménye mint a felette lévõnek
 
-            var numberOfItems = products.Count(p => p.UnitPrice > 15);
-            Console.WriteLine(numberOfItems);
+            //var numberOfItems = products.Count(p => p.UnitPrice > 15);
+            //Console.WriteLine(numberOfItems);
 
-            var maxPrice = products.Max(p => p.UnitPrice);
-            Console.WriteLine(maxPrice);
+            //var maxPrice = products.Max(p => p.UnitPrice);
+            //Console.WriteLine(maxPrice);
+
+            //var tofu = products.First(p => p.Name == "Tofu");
+            //var tofu = products.First(p => p.Name == "Tofuu"); //kivételt dob
+            //var tofu = products.FirstOrDefault(p => p.Name == "Tofuu"); // visszaadja a Product típus alapértelmezett értékét
+
+            //var tofu = products.Single(p => p.Name == "Tofu"); //Pontosan egy darabra lehet igaz a feltétel
+
+            //if (tofu != null)
+            //    Console.WriteLine(tofu.Name);
+
+            //var single = products.Single(p => p.UnitPrice > 15); //Kivételt dob mert egynél többre is igaz a feltétel
+            //var single = products.SingleOrDefault(p => p.Name == "Tofuu"); //a Product default értékét null-t ad vissza
+            var single = products.SingleOrDefault(p => p.UnitPrice > 15);
 
             Console.ReadKey();
         }
