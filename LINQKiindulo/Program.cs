@@ -20,10 +20,11 @@ namespace LINQKiindulo
 
             var productNames = products.Where(p => p.UnitPrice > 10).Select(p => p.Name);
 
-            foreach (var product in productNames)
-            {
-                Console.WriteLine(product);
-            }
+            //foreach (var product in productNames)
+            //{
+            //    Console.WriteLine(product);
+            //}
+            productNames.WriteAll("Termék nevek");
 
             Console.ReadKey();
         }
