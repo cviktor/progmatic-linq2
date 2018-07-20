@@ -18,6 +18,13 @@ namespace LINQKiindulo
         {
             Init();
 
+            var productNames = products.Where(p => p.UnitPrice > 10).Select(p => p.Name);
+
+            foreach (var product in productNames)
+            {
+                Console.WriteLine(product);
+            }
+
             Console.ReadKey();
         }
 
